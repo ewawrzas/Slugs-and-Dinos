@@ -1,11 +1,26 @@
 .gamescreen {
-
+ background-color: black;
+ display: flex;
+ min-height: 600px;
+ width: auto;
+ align-items: center;
+ justify-content: center;
 }
 
 .control-panel-column {
-
+ background-color: white;
+ width: 20%;
+ height: 300px;
 }
 
 .gameboard {
+  background-color: red;
+  height: 500px;
+  width: 500px;
+}
+
+#title {
+  color: white;
+  align-self: flex-start;
 
 }
