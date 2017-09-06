@@ -9,13 +9,13 @@
 
 ul {
   list-style: none;
-
+  padding: 20px;
 }
 
 li {
   float: left;
-  width: 62.5px;
-  height: 62.5px;
+  width: 55px;
+  height: 55px;
   border: 1px solid black;
   cursor: pointer;
 }
@@ -40,6 +40,9 @@ body {
   background-color: red;
   height: 500px;
   width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #title {
