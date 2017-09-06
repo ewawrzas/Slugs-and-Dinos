@@ -21,10 +21,17 @@ Inspired by Candy Crush, Slugs & Dinos is thrilling race against the clock. The 
     - When the timer runs out all of the pieces disappear from the board
 
 ## Wireframes
-
+![alt text](https://github.com/ewawrzas/Slugs-and-Dinos/blob/master/Wireframe.png)
 
 ## Technologies
 
 
 
 ## Implementation Timeline
+
++ Day 1: Game Board and Control Panel
+  - Objective: Complete board and control panel
++ Day 2: Pieces
+  - Objective: Complete pieces and game logic
++ Day 3: Score Board and Timer
+  - Objective: Complete functional score board and timer
