@@ -1,6 +1,6 @@
 # Slugs & Dinos
 
-Inspired by Candy Crush, Slugs & Dinos is a puzzle game where players race against the clock to line up matching pieces before time runs out.
+Inspired by Candy Crush, Slugs & Dinos is a puzzle game where players earn points by lining up matching pieces before the clock runs out.
 
 ## Functionality & MVP
   + Game Board and Control Panel
@@ -13,7 +13,7 @@ Inspired by Candy Crush, Slugs & Dinos is a puzzle game where players race again
     - There are four pieces, each having a different shape and color
     - The pieces randomly populate the board when the start button is clicked
     - The user can swap one piece with an adjacent piece on the board
-    - After a swap any rows, columns, or diagonals of 3 or more matching pieces is dissolved
+    - After a swap, any rows, columns, or diagonals of 3 or more matching pieces is dissolved
 
 
   + Score Board & Timer
@@ -36,8 +36,8 @@ The following technologies will be used to create the game:
 
 The following will be scripts in addition to the entry file:
 
-`board.js` this script will house the logic for populating and updating the board during game play
-`piece.js`  this script will house the logic for the pieces
+- `board.js` this script will house the logic for populating and updating the board during game play
+- `piece.js`  this script will house the logic for the pieces
 
 
 ## Implementation Timeline
