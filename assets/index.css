@@ -1,16 +1,22 @@
 .gamescreen {
  background-color: black;
  display: flex;
+ flex-direction: column;
  min-height: 650px;
  width: auto;
- align-items: center;
  justify-content: center;
+ align-items: center;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
 ul {
   list-style: none;
   padding: 20px;
-
 }
 
 li {
@@ -52,5 +58,7 @@ body {
 }
 
 #title {
-  color: black;
+  color: white;
+  font-family: 'Bungee Shade', cursive;
+  font-size: 40px;
 }
