@@ -1,7 +1,7 @@
 .gamescreen {
  background-color: black;
  display: flex;
- min-height: 600px;
+ min-height: 650px;
  width: auto;
  align-items: center;
  justify-content: center;
@@ -10,6 +10,7 @@
 ul {
   list-style: none;
   padding: 20px;
+
 }
 
 li {
@@ -18,6 +19,10 @@ li {
   height: 55px;
   border: 1px solid black;
   cursor: pointer;
+}
+
+li:hover{
+  background-color: yellow;
 }
 
 .group:after {
@@ -33,7 +38,8 @@ body {
 .control-panel-column {
  background-color: white;
  width: 20%;
- height: 300px;
+ height: 500px;
+ margin-right: 10px;
 }
 
 .gameboard {
@@ -46,7 +52,5 @@ body {
 }
 
 #title {
-  color: white;
-  align-self: flex-start;
-
+  color: black;
 }
