@@ -7,6 +7,29 @@
  justify-content: center;
 }
 
+ul {
+  list-style: none;
+
+}
+
+li {
+  float: left;
+  width: 62.5px;
+  height: 62.5px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+body {
+  text-align: center;
+}
+
 .control-panel-column {
  background-color: white;
  width: 20%;
