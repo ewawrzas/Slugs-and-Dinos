@@ -1,6 +1,6 @@
 # Slugs & Dinos
 
-Inspired by Candy Crush, Slugs & Dinos is thrilling race against the clock. The goal of the game is to earn points by matching like pieces before time runs out.
+Inspired by Candy Crush, Slugs & Dinos is a puzzle game where players race against the clock to line up matching pieces before time runs out.
 
 ## Functionality & MVP
   + Game Board and Control Panel
@@ -21,10 +21,23 @@ Inspired by Candy Crush, Slugs & Dinos is thrilling race against the clock. The 
     - When the timer runs out all of the pieces disappear from the board
 
 ## Wireframes
+
+Slugs and Dinos will be displayed on a single screen. The title and instructions will be at the top center of the page with the main content below. The control panel will host the start button, timer, and scoreboard. The game board will be an 8x8 grid next to the control panel. Links to Github, LinkedIn and my portfolio will be located below the main content of the page.
+
 ![alt text](https://github.com/ewawrzas/Slugs-and-Dinos/blob/master/Wireframe.png)
 
-## Technologies
+## Technologies and Architecture
 
+The following technologies will be used to create the game:
+
++ `JavaScript` for game logic
++ Canvas to render game board, pieces, and control panel
++ Webpack to bundle js files
+
+The following will be scripts in addition to the entry file:
+
+`board.js` this script will house the logic for populating and updating the board during game play
+`piece.js`  this script will house the logic for the pieces
 
 
 ## Implementation Timeline
