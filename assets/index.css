@@ -106,7 +106,7 @@ body {
   font-size: 25px;
 }
 
-.fader2 {
+/*.fader2 {
   align-self: center;
 }
 
@@ -118,7 +118,7 @@ body {
   padding: 0.9px;
   color: red;
 }
-.fader2:hover td { background-color: green; }
+.fader2:hover td { background-color: green; }*/
 
 
 .timerDiv {
