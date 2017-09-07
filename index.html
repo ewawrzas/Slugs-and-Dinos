@@ -11,34 +11,43 @@
   </head>
   <body>
     <div class="gamescreen">
+
       <div class="header">
         <img id="dinoImg1" src="./assets/images/rex.svg">
         <h1 id="title">Slugs & Dinos</h1>
         <img id="dinoImg2" src="./assets/images/rex.svg">
       </div>
+
       <div class="content">
         <div class="control-panel-column">
           <button id="start" type="button" name="button">START</button>
-          <h2>Score</h2>
-          <table class="fader2" cellpadding="0" cellspacing="0">
-            <h2 id="timerLabel">Timer</h2>
-          <tr>
-          <td style="transition-delay: 0s;"></td>
-          <td style="transition-delay: 0.5s;"></td>
-          <td style="transition-delay: 1.0s;"></td>
-          <td style="transition-delay: 1.5s;"></td>
-          <td style="transition-delay: 2.0s;"></td>
-          <td style="transition-delay: 2.5s;"></td>
-          <td style="transition-delay: 3.0s;"></td>
-          <td style="transition-delay: 3.5s;"></td>
-          <td style="transition-delay: 4.0s;"></td>
-          <td style="transition-delay: 4.5s;"></td>
-          </tr>
-          </table>
+          <div class="scoreDiv">
+            <img id="eggImg" src="./assets/images/egg.svg">
+            <h2 id="label">Score</h2>
+          </div>
+          <div class="timerDiv">
+            <table class="fader2" cellpadding="0" cellspacing="0">
+              <tr>
+                <td style="transition-delay: 0s;">.</td>
+                <td style="transition-delay: 0.5s;">.</td>
+                <td style="transition-delay: 1.0s;">.</td>
+                <td style="transition-delay: 1.5s;">.</td>
+                <td style="transition-delay: 2.0s;">.</td>
+                <td style="transition-delay: 2.5s;">.</td>
+                <td style="transition-delay: 3.0s;">.</td>
+                <td style="transition-delay: 3.5s;">.</td>
+                <td style="transition-delay: 4.0s;">.</td>
+                <td style="transition-delay: 4.5s;">.</td>
+              </tr>
+              <h2 id="label">Timer</h2>
+            </table>
+          </div>
         </div>
+        
         <figure class="gameboard">
         </figure>
       </div>
+
     </div>
   </body>
 </html>

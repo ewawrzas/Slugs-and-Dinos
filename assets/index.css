@@ -97,6 +97,15 @@ body {
   height: 130px;
 }
 
+#eggImg {
+  height: 130px;
+  align-self: center;
+}
+
+#label {
+  font-size: 25px;
+}
+
 .fader2 {
   align-self: center;
 }
@@ -108,3 +117,15 @@ body {
   width: 2px;
 }
 .fader2:hover td { background-color: green; }
+
+
+.timerDiv {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+
+.scoreDiv {
+  position: relative;
+  bottom: 50px;
+}
