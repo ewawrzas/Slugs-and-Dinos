@@ -133,3 +133,9 @@ body {
   position: relative;
   bottom: 50px;
 }
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
