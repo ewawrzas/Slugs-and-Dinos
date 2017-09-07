@@ -1,0 +1,29 @@
+{
+  "name": "slugs_n_dinos",
+  "version": "1.0.0",
+  "description": "Inspired by Candy Crush, Slugs & Dinos is a puzzle game where players earn points by lining up matching pieces before the clock runs out.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ewawrzas/Slugs-and-Dinos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ewawrzas/Slugs-and-Dinos/issues"
+  },
+  "homepage": "https://github.com/ewawrzas/Slugs-and-Dinos#readme",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "webpack": "^3.5.6"
+  }
+}

@@ -58,7 +58,7 @@ body {
 .control-panel-column {
  background-color: white;
  width: 20%;
- height: 520px;
+ height: 540px;
  margin-right: 10px;
  display: flex;
  flex-direction: column;
@@ -66,10 +66,10 @@ body {
 }
 
 .gameboard {
-  background-color: lightgrey;
+  background-color: white;
   height: 520px;
   width: 520px;
-  padding-left: 25px;
+  padding: 10px 0px 10px 25px;
   display: flex;
   align-items: center;
   justify-content: center;
