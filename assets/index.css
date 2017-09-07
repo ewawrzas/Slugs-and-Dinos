@@ -113,8 +113,10 @@ body {
 .fader2 td {
   background-color: red;
   transition-timing-function: cubic-bezier(1,0,1,0);
-  transition-duration: 0.5s;
-  width: 2px;
+  transition-duration: 1s;
+  width: 1.9px;
+  padding: 0.9px;
+  color: red;
 }
 .fader2:hover td { background-color: green; }
 
@@ -123,6 +125,8 @@ body {
   display: flex;
   flex-direction: column;
   align-content: space-between;
+  position: relative;
+  bottom: 20px;
 }
 
 .scoreDiv {
