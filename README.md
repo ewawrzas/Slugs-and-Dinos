@@ -31,13 +31,14 @@ Slugs and Dinos will be displayed on a single screen. The title and instructions
 The following technologies will be used to create the game:
 
 + `JavaScript` for game logic
-+ Canvas to render game board, pieces, and control panel
++ JQuery render game board, pieces, and control panel
 + Webpack to bundle js files
 
 The following will be scripts in addition to the entry file:
 
 - `board.js` this script will house the logic for populating and updating the board during game play
-- `piece.js`  this script will house the logic for the pieces
+- `piece.js` this script will house the logic for the pieces
+- `game.js`
 
 
 ## Implementation Timeline

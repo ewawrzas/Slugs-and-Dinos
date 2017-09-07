@@ -1,0 +1,25 @@
+<style type="text/css">
+
+  .fader2 td {
+    background-color: red;
+    transition-timing-function: cubic-bezier(1,0,1,0);
+    transition-duration: 0.5s;
+  }
+  .fader2:hover td { background-color: green; }
+
+</style>
+
+<table class="fader2" cellpadding="10" cellspacing="2">
+<tr>
+<td style="transition-delay: 0s;">10%</td>
+<td style="transition-delay: 0.5s;">20%</td>
+<td style="transition-delay: 1.0s;">30%</td>
+<td style="transition-delay: 1.5s;">40%</td>
+<td style="transition-delay: 2.0s;">50%</td>
+<td style="transition-delay: 2.5s;">60%</td>
+<td style="transition-delay: 3.0s;">70%</td>
+<td style="transition-delay: 3.5s;">80%</td>
+<td style="transition-delay: 4.0s;">90%</td>
+<td style="transition-delay: 4.5s;">100%</td>
+</tr>
+</table>
