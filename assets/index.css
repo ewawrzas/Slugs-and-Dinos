@@ -4,6 +4,7 @@
  flex-direction: column;
  min-height: 780px;
  width: auto;
+ min-width: 700px;
  justify-content: center;
  align-items: center;
 }
@@ -21,9 +22,13 @@ button {
 }
 
 #start{
-  background-color: white;
+  background-color: lightgrey;
   color: black;
   font-size: 32px;
+}
+
+#start:hover{
+  opacity: .5;
 }
 
 ul {
@@ -108,19 +113,11 @@ body {
   font-size: 25px;
 }
 
-/*.fader2 {
-  align-self: center;
+#progressBar{
+  width: auto;
+  height: 10px;
+  border: lightgrey solid 2px;
 }
-
-.fader2 td {
-  background-color: red;
-  transition-timing-function: cubic-bezier(1,0,1,0);
-  transition-duration: 1s;
-  width: 1.9px;
-  padding: 0.9px;
-  color: red;
-}
-.fader2:hover td { background-color: green; }*/
 
 
 .timerDiv {
