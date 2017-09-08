@@ -33,7 +33,6 @@ button {
 
 ul {
   list-style: none;
-  /*border: 20px lightgrey solid;*/
   align-self: center;
 }
 
@@ -41,7 +40,7 @@ li {
   float: left;
   width: 60px;
   height: 60px;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   cursor: pointer;
 }
 
@@ -67,18 +66,20 @@ body {
  margin-right: 10px;
  display: flex;
  flex-direction: column;
- justify-content: space-around;
+ justify-content: space-between;
 }
 
 .gameboard {
   background-color: white;
   height: 520px;
   width: 520px;
-  padding: 10px 0px 10px 25px;
+  padding: 10px 0px 10px 40px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+
 
 .header {
   display: flex;
@@ -95,9 +96,9 @@ body {
 #dinoImg1 {
   height: 130px;
   -moz-transform: scaleX(-1);
-   -o-transform: scaleX(-1);
-   -webkit-transform: scaleX(-1);
-   transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
 }
 
 #dinoImg2 {
@@ -105,7 +106,7 @@ body {
 }
 
 #eggImg {
-  height: 130px;
+  height: 170px;
   align-self: center;
 }
 
@@ -115,7 +116,7 @@ body {
 
 #progressBar{
   width: auto;
-  height: 10px;
+  height: 25px;
   border: lightgrey solid 2px;
 }
 
