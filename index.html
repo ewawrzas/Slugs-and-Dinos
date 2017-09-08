@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
     <link rel="stylesheet" href="./assets/index.css" type="text/css">
     <link rel="stylesheet" href="./external/jquery-ui.min.css">
+    <link rel="icon" type="image/gif" href="assets/images/favicon.ico">
     <script src="./external/jquery/jquery.js"></script>
     <script src="./external/jquery-ui.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -14,6 +15,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="./assets/javascripts/bundle.js"></script>
 
+
+    <script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("img", ev.target.id);
+    debugger
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("img");
+    // ev.target.appendChild(document.getElementById());
+}
+</script>
   </head>
   <body>
     <div class="gamescreen">
@@ -31,7 +49,7 @@
             <img id="eggImg" src="./assets/images/egg.svg">
             <h2 id="label">Score</h2>
           </div>
-        
+
           <div id="progressBar"></div>
 
         </div>
