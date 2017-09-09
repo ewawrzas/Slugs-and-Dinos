@@ -17,20 +17,84 @@
 
 
     <script>
-function allowDrop(ev) {
-    ev.preventDefault();
-}
+      function dragstart_handler(ev) {
+        $(ev.target).attr("id", "selected");
+        console.log("dragStart");
+        // Add the target element's id to the data transfer object
+        const data = event.dataTransfer;
+        // data.setDataAt("image/png", stream, 0);
+        // data.setDataAt("application/x-moz-file", file, 0);
+        data.setData("text/uri-list", ev.target.src);
+        data.setData("text/uri-plain", ev.target.src);
+        ev.dataTransfer.setData("text/plain", ev.target.id);
+        var img = new Image();
+        img.src = 'assets/images/four-expand-arrows.png';
+        ev.dataTransfer.setDragImage(img, 10, 10);
+        ev.dataTransfer.dropEffect = "move";
 
-function drag(ev) {
-    ev.dataTransfer.setData("img", ev.target.id);
-    debugger
-}
+      }
 
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("img");
-    // ev.target.appendChild(document.getElementById());
-}
+      function dragover_handler(ev) {
+       ev.preventDefault();
+       // Set the dropEffect to move
+       ev.dataTransfer.dropEffect = "move"
+      }
+
+    function drop_handler(ev) {
+       ev.preventDefault();
+       debugger
+       // Get the id of the target and add the moved element to the target's DOM
+       var data = ev.dataTransfer.getData("text");
+       $(ev.target.parentElement).html("").append(document.getElementById(data));
+    }
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+// function allowDrop(ev) {
+//     ev.preventDefault();
+// }
+//
+// function drag(ev) {
+//     $(ev.target).attr("id", "selected");
+//     ev.dataTransfer.setData("text/plain", ev.target.id);
+//     ev.target.style.opacity = "0.4";
+//     // debugger
+// }
+//
+// function drop(ev) {
+//     ev.preventDefault();
+//     debugger
+//
+//     // const image = document.createElement('img');
+//     const data = ev.dataTransfer.fromElement(document.getElementById('selected'));
+//     debugger
+//     $(ev.currentTarget).html(document.getElementById(data))
+//
+//     // image.innerHTML = data
+//     // const $dropTarget = ev.currentTarget;
+//     debugger
+//
+//     // $(ev.currentTarget).html(document.getElementById(data));
+//
+
+    // ev.currentTarget.removeClass("icon").append(data);
+// }
 </script>
   </head>
   <body>
