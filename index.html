@@ -51,9 +51,11 @@
        debugger
 
        toElement.html("").append(document.getElementById(data))
-       fromElement.append(`<img src=${image} height="54px">`).removeClass('selected')
+       fromElement.append(`<img src=${image} height="54px">`)
+       $(document.getElementById(data)).removeAttr('id')
       //  ev.target.parentElement.appendChild(document.getElementById(data));
        debugger
+       ev.target = null;
     }
 
 
