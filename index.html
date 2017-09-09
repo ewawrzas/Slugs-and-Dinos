@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="./assets/index.css" type="text/css">
     <link rel="stylesheet" href="./external/jquery-ui.min.css">
     <link rel="icon" type="image/gif" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="./assets/font-awesome-4.7.0/css/font-awesome.min.css">
     <script src="./external/jquery/jquery.js"></script>
     <script src="./external/jquery-ui.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="./assets/javascripts/bundle.js"></script>
-
 
     <script>
       function dragstart_handler(ev) {
@@ -64,80 +64,40 @@
 
     }
 
-
-// "." + image.slice(51)
-
     </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script>
-// function allowDrop(ev) {
-//     ev.preventDefault();
-// }
-//
-// function drag(ev) {
-//     $(ev.target).attr("id", "selected");
-//     ev.dataTransfer.setData("text/plain", ev.target.id);
-//     ev.target.style.opacity = "0.4";
-//     // debugger
-// }
-//
-// function drop(ev) {
-//     ev.preventDefault();
-//     debugger
-//
-//     // const image = document.createElement('img');
-//     const data = ev.dataTransfer.fromElement(document.getElementById('selected'));
-//     debugger
-//     $(ev.currentTarget).html(document.getElementById(data))
-//
-//     // image.innerHTML = data
-//     // const $dropTarget = ev.currentTarget;
-//     debugger
-//
-//     // $(ev.currentTarget).html(document.getElementById(data));
-//
-
-    // ev.currentTarget.removeClass("icon").append(data);
-// }
-</script>
   </head>
   <body>
     <div class="gamescreen">
 
-      <div class="header">
-        <img id="dinoImg1" src="./assets/images/rex.svg">
-        <h1 id="title">Slugs & Dinos</h1>
-        <img id="dinoImg2" src="./assets/images/rex.svg">
-      </div>
+			<div class="links">
+				<a href="https://www.linkedin.com/in/ellie-wawrzaszek/" class="fa fa-linkedin"></a>
+        <a href="https://github.com/ewawrzas" class="fa fa-github"></a>
+				<a href="https://angel.co/ellie-wawrzaszek" class="fa fa-angellist"></a>
+			</div>
+    <div class="wrapper1">
 
-      <div class="content">
-        <div class="control-panel-column">
-          <button id="start" type="button" name="button">START</button>
-          <div class="scoreDiv">
-            <img id="eggImg" src="./assets/images/egg.svg">
-            <h2 id="label">Score</h2>
-          </div>
-
-          <div id="progressBar"></div>
-
+        <div class="header">
+          <img id="dinoImg1" src="./assets/images/rex.svg">
+          <h1 id="title">Slugs & Dinos</h1>
+          <img id="dinoImg2" src="./assets/images/rex.svg">
         </div>
-        <figure class="gameboard"></figure>
-      </div>
 
+        <div class="content">
+          <div class="control-panel-column">
+            <button id="start" type="button" name="button">START</button>
+            <div class="scoreDiv">
+              <img id="eggImg" src="./assets/images/egg.svg">
+              <h2 id="label">Score</h2>
+            </div>
+
+            <div id="progressBar"></div>
+
+          </div>
+          <figure class="gameboard"></figure>
+        </div>
+        
+      </div>
     </div>
   </body>
 </html>

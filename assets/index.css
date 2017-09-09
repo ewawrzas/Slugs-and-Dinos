@@ -6,7 +6,32 @@
  width: auto;
  min-width: 700px;
  justify-content: center;
+ /*align-content: flex-start;*/
  align-items: center;
+}
+
+/*.wrapper1 {
+  width: 100%
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}*/
+
+.links {
+  align-self: flex-start;
+  display: flex;
+  /*margin-left: 40px;*/
+  position: relative;
+  left: 40px;
+  bottom: 55px;
+}
+
+.links a {
+  color: #C9824E;
+  font-size: 30px;
+  padding: 10px;
+  text-decoration: none;
+  opacity: .5;
 }
 
 .content {
@@ -65,7 +90,8 @@ body {
 
 .control-panel-column {
  background-color: white;
- width: 15%;
+ width: 25%;
+ min-width: 175px;
  height: 540px;
  margin-right: 10px;
  display: flex;
@@ -86,6 +112,7 @@ body {
 .header {
   display: flex;
   padding: 0px 15px 15px 15px;
+  justify-content: center;
 }
 
 #title {
