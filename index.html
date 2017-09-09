@@ -24,8 +24,8 @@
         const data = event.dataTransfer;
         // data.setDataAt("image/png", stream, 0);
         // data.setDataAt("application/x-moz-file", file, 0);
-        data.setData("text/uri-list", ev.target.src);
-        data.setData("text/uri-plain", ev.target.src);
+        // data.setData("text/uri-list", ev.target.src);
+        // data.setData("text/uri-plain", ev.target.src);
         ev.dataTransfer.setData("text/plain", ev.target.id);
         var img = new Image();
         img.src = 'assets/images/four-expand-arrows.png';
@@ -42,12 +42,22 @@
 
     function drop_handler(ev) {
        ev.preventDefault();
-       debugger
        // Get the id of the target and add the moved element to the target's DOM
        var data = ev.dataTransfer.getData("text");
-       $(ev.target.parentElement).html("").append(document.getElementById(data));
+
+       const toElement = $(ev.target.parentElement);
+       const image = "." + ev.target.src.slice(51);
+       const fromElement = $(document.getElementById(data).parentElement)
+       debugger
+
+       toElement.html("").append(document.getElementById(data))
+       fromElement.append(`<img src=${image} height="54px">`).removeClass('selected')
+      //  ev.target.parentElement.appendChild(document.getElementById(data));
+       debugger
     }
 
+
+// "." + image.slice(51)
 
     </script>
 
