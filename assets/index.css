@@ -17,6 +17,12 @@
   align-items: center;
 }*/
 
+.explode {
+  background-image: url('./images/fire.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .links {
   align-self: flex-start;
   display: flex;

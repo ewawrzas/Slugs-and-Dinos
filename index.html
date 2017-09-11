@@ -49,13 +49,13 @@
        }
 
        const toElement = $(ev.target.parentElement);
-       const image = "." + ev.target.src.slice(51);
+       const image = ev.target.src.slice(52);
 
        const fromElement = $(document.getElementById(data).parentElement)
 
 
        toElement.html("").append(document.getElementById(data))
-       fromElement.append(`<img src=${image} draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" height="54px">`)
+       fromElement.append(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=${image} height="54px" >`)
        $(document.getElementById(data)).removeAttr('id')
       //  ev.target.parentElement.appendChild(document.getElementById(data));
 
@@ -93,7 +93,7 @@
         possibleTargets.forEach( function (index) {
 
           if ($clickedCreature.html() === $(`ul.group li:eq(${index})`).html()) {
-            $( `ul.group li:eq(${index})`).css("background-color", "red");
+            // $( `ul.group li:eq(${index})`).css("background-color", "red");
             matches.push($( `ul.group li:eq(${index})`));
             // matches.push(index);
             console.log(matches)
@@ -115,14 +115,18 @@
         if ($(match).html() === $(possibleThird).html()) {
           const images = ['bluedino.png', 'slug.png', 'slug1.png', 'dino2.png', 'rex.png'];
           // const images = ['dino2.png', 'rex.png', 'bluedino.png', ];
-          const newHTML = `<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`
-          // const matchThree = [$(match), $clickedCreature, possibleThird];
-            // matchThree.forEach( function (element) {
-            possibleThird.html("").append(newHTML);
-            $(match).html("").append(newHTML);
+          const newHTML = `img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" `
+          const matchThree = [$(match), $clickedCreature, possibleThird];
+            matchThree.forEach( function (element) {
+              // possibleThird.html("").html("<img src='assets/images/explosion.jpg' width='54px'>")
+              element.html("").html("<img src='assets/images/explosion.png' width='54px'>")
+              // setTimeout(function(){ possibleThird.html("").html(newHTML); },1000)
+              setTimeout(function(){ element.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },1000)
+
+            // $(match).html("").append(newHTML);
             // element.html("").append(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`);
             // $(match).html("").append(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 2]} height="54px" >`);
-          // })
+          })
           debugger
         }
       })
