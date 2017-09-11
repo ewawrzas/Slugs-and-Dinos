@@ -120,7 +120,7 @@
         if ($(match).html() === $(possibleThird).html()) {
           const images = ['bluedino.png', 'slug.png', 'slug1.png', 'dino2.png', 'rex.png'];
           const newHTML = `img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" `
-          const matchThree = [$(match), $clickedCreature, possibleThird];
+          let matchThree = [$(match), $clickedCreature, possibleThird];
           // let score = 0;
           matchThree.forEach( function (element) {
             element.html("").html("<img src='assets/images/explosion.png' width='57px'>")
@@ -147,12 +147,29 @@
           const $secondCheck = $(`ul.group li:eq(${idx+2})`)
   debugger
           if ($currentCreature.html() === $firstCheck.html() && $currentCreature.html() === $secondCheck.html()) {
-            noMatches = false;
+
             const images = ['bluedino.png', 'slug1.png', 'slug.png', 'dino2.png', 'rex.png'];
             const newHTML = `<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`
-            $currentCreature.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`);
-            $firstCheck.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`);
-            $secondCheck.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`);
+
+            $currentCreature.html("").html("<img src='assets/images/explosion.png' width='57px'>")
+            $firstCheck.html("").html("<img src='assets/images/explosion.png' width='57px'>")
+            $secondCheck.html("").html("<img src='assets/images/explosion.png' width='57px'>")
+
+            let matchThree = [$currentCreature, $firstCheck, $secondCheck];
+            matchThree.forEach( function (element) {
+              const images = ['bluedino.png', 'slug1.png', 'slug.png', 'dino2.png', 'rex.png'];
+              element.html("").html("<img src='assets/images/explosion.png' width='57px'>")
+              setTimeout(function(){ element.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },2000)
+              // score += 10
+            })
+            // setTimeout(function(){ $currentCreature.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },2000)})
+            // setTimeout(function(){ $firstCheck.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },2000)})
+            // setTimeout(function(){ $secondCheck.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },2000)})
+
+
+            // $currentCreature.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`);
+            // $firstCheck.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`);
+            // $secondCheck.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`);
           }
         })
       // }
@@ -173,9 +190,23 @@
         if ($currentCreature.html() === $firstCheck.html() && $currentCreature.html() === $secondCheck.html()) {
           const images = ['dino2.png', 'rex.png', 'bluedino.png', 'slug1.png', 'slug.png'];
           const newHTML = `<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`
-          $currentCreature.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`);
-          $firstCheck.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`);
-          $secondCheck.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`);
+
+
+          let matchThree = [$currentCreature, $firstCheck, $secondCheck];
+          matchThree.forEach( function (element) {
+            const images = ['bluedino.png', 'slug1.png', 'slug.png', 'dino2.png', 'rex.png'];
+            element.html("").html("<img src='assets/images/explosion.png' width='57px'>")
+            setTimeout(function(){ element.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },2000)
+            // score += 10
+          })
+
+          // $currentCreature.html("").html("<img src='assets/images/explosion.png' width='57px'>")
+          // $firstCheck.html("").html("<img src='assets/images/explosion.png' width='57px'>")
+          // $secondCheck.html("").html("<img src='assets/images/explosion.png' width='57px'>")
+          //
+          // $currentCreature.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`);
+          // $firstCheck.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`);
+          // $secondCheck.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`);
         }
       })
       checkInside();
