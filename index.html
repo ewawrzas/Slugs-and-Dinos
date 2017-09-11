@@ -29,7 +29,6 @@
         var img = new Image();
         img.src = 'assets/images/four-expand-arrows.png';
         ev.dataTransfer.setDragImage(img, 10, 10);
-        debugger
         ev.dataTransfer.dropEffect = "move";
 
       }
@@ -45,30 +44,27 @@
        // Get the id of the target and add the moved element to the target's DOM
        var data = ev.dataTransfer.getData("text");
        if (!data){
-         debugger
+
          dragstart_handler(ev);
        }
 
        const toElement = $(ev.target.parentElement);
        const image = "." + ev.target.src.slice(51);
-       debugger
+
        const fromElement = $(document.getElementById(data).parentElement)
-       debugger
+
 
        toElement.html("").append(document.getElementById(data))
        fromElement.append(`<img src=${image} draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" height="54px">`)
        $(document.getElementById(data)).removeAttr('id')
       //  ev.target.parentElement.appendChild(document.getElementById(data));
-       debugger
+
        checkInside();
+      // findTargets($(fromElement))
     }
 
     function checkInside() {
       for (let idx = 0; idx < 64; idx++) {
-        const borderIndicies = [0, 1, 2, 3, 4, 5, 6, 7, 8, 15, 16, 23, 24, 31, 32, 39, 40, 47, 48, 55, 56, 57, 58, 59, 60, 61, 62, 63]
-        if (borderIndicies.includes(idx)) {
-          continue;
-        }
         const $clickedCreature = $(`ul.group li:eq(${idx})`)
         // this.checkMatches($clickedCreature);
         debugger
@@ -77,7 +73,8 @@
     }
 
       function findTargets($clickedCreature) {
-        const clickedCreatureIdx = $clickedCreature.index();
+        const clickedCreatureIdx = $($clickedCreature).index();
+        debugger
         const deltas = [-9, -8, -7, -1, 1, 7, 8, 9];
 
         let possibleTargets = []
@@ -96,7 +93,7 @@
         possibleTargets.forEach( function (index) {
 
           if ($clickedCreature.html() === $(`ul.group li:eq(${index})`).html()) {
-            // $( `ul.group li:eq(${index})`).css("background-color", "red");
+            $( `ul.group li:eq(${index})`).css("background-color", "red");
             matches.push($( `ul.group li:eq(${index})`));
             // matches.push(index);
             console.log(matches)
