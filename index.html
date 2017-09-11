@@ -15,7 +15,6 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="./assets/javascripts/bundle.js"></script>
-
     <script>
       function dragstart_handler(ev) {
         $(ev.target).attr("id", "selected");
@@ -61,6 +60,75 @@
        $(document.getElementById(data)).removeAttr('id')
       //  ev.target.parentElement.appendChild(document.getElementById(data));
        debugger
+       checkInside();
+    }
+
+    function checkInside() {
+      for (let idx = 0; idx < 64; idx++) {
+        const borderIndicies = [0, 1, 2, 3, 4, 5, 6, 7, 8, 15, 16, 23, 24, 31, 32, 39, 40, 47, 48, 55, 56, 57, 58, 59, 60, 61, 62, 63]
+        if (borderIndicies.includes(idx)) {
+          continue;
+        }
+        const $clickedCreature = $(`ul.group li:eq(${idx})`)
+        // this.checkMatches($clickedCreature);
+        debugger
+        findTargets($clickedCreature);
+      }
+    }
+
+      function findTargets($clickedCreature) {
+        const clickedCreatureIdx = $clickedCreature.index();
+        const deltas = [-9, -8, -7, -1, 1, 7, 8, 9];
+
+        let possibleTargets = []
+
+        deltas.forEach((delta) => {
+          return possibleTargets.push(clickedCreatureIdx + delta)
+        });
+
+        console.log(possibleTargets)
+        findMatches(possibleTargets, $clickedCreature);
+      }
+
+
+      function findMatches(possibleTargets, $clickedCreature) {
+        const matches = []
+        possibleTargets.forEach( function (index) {
+
+          if ($clickedCreature.html() === $(`ul.group li:eq(${index})`).html()) {
+            // $( `ul.group li:eq(${index})`).css("background-color", "red");
+            matches.push($( `ul.group li:eq(${index})`));
+            // matches.push(index);
+            console.log(matches)
+            console.log($(matches))
+            return matches
+          }
+        })
+        checkMatches(matches, $clickedCreature)
+      }
+
+
+      function checkMatches(matches, $clickedCreature) {
+      matches.forEach( function (match) {
+        debugger
+        const diff = $clickedCreature.index() - $(match).index();
+        const possibleThirdIdx = $(match).index() - diff;
+        const possibleThird = ($(`ul.group li:eq(${possibleThirdIdx})`));
+        debugger
+        if ($(match).html() === $(possibleThird).html()) {
+          const images = ['bluedino.png', 'slug.png', 'slug1.png', 'dino2.png', 'rex.png'];
+          // const images = ['dino2.png', 'rex.png', 'bluedino.png', ];
+          const newHTML = `<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`
+          // const matchThree = [$(match), $clickedCreature, possibleThird];
+            // matchThree.forEach( function (element) {
+            possibleThird.html("").append(newHTML);
+            $(match).html("").append(newHTML);
+            // element.html("").append(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`);
+            // $(match).html("").append(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 2]} height="54px" >`);
+          // })
+          debugger
+        }
+      })
 
     }
 
@@ -96,7 +164,7 @@
           </div>
           <figure class="gameboard"></figure>
         </div>
-        
+
       </div>
     </div>
   </body>
