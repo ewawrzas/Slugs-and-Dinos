@@ -22,10 +22,6 @@
         console.log("dragStart");
         // Add the target element's id to the data transfer object
         const data = event.dataTransfer;
-        // data.setDataAt("image/png", stream, 0);
-        // data.setDataAt("application/x-moz-file", file, 0);
-        // data.setData("text/uri-list", ev.target.src);
-        // data.setData("text/uri-plain", ev.target.src);
         ev.dataTransfer.setData("text/plain", ev.target.id);
         var img = new Image();
         img.src = 'assets/images/four-expand-arrows.png';
@@ -36,31 +32,25 @@
 
       function dragover_handler(ev) {
        ev.preventDefault();
-       // Set the dropEffect to move
        ev.dataTransfer.dropEffect = "move"
       }
 
     function drop_handler(ev) {
-       ev.preventDefault();
-       // Get the id of the target and add the moved element to the target's DOM
-       var data = ev.dataTransfer.getData("text");
-       if (!data){
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("text");
 
+      if (!data){
          dragstart_handler(ev);
-       }
+      }
 
-       const toElement = $(ev.target.parentElement);
-       const image = ev.target.src.slice(52);
+      const toElement = $(ev.target.parentElement);
+      const image = ev.target.src.slice(52);
+      const fromElement = $(document.getElementById(data).parentElement)
 
-       const fromElement = $(document.getElementById(data).parentElement)
-
-
-       toElement.html("").append(document.getElementById(data))
-       fromElement.append(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=${image} height="54px" >`)
-       $(document.getElementById(data)).removeAttr('id')
-
-       checkHorizontals();
-      // findTargets($(fromElement))
+      toElement.html("").append(document.getElementById(data))
+      fromElement.append(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=${image} height="54px" >`)
+      $(document.getElementById(data)).removeAttr('id')
+      checkHorizontals();
     }
 
     function checkInside() {
@@ -70,23 +60,13 @@
           continue;
         }
         const $clickedCreature = $(`ul.group li:eq(${idx})`)
-        // this.checkMatches($clickedCreature);
-        debugger
         this.findTargets($clickedCreature);
       }
-      // for (let idx = 0; idx < 64; idx++) {
-      //   const $clickedCreature = $(`ul.group li:eq(${idx})`)
-      //   // this.checkMatches($clickedCreature);
-      //   debugger
-      //   findTargets($clickedCreature);
-      // }
     }
 
       function findTargets($clickedCreature) {
         const clickedCreatureIdx = $($clickedCreature).index();
-        debugger
         const deltas = [-9, -8, -7, -1, 1, 7, 8, 9];
-
         let possibleTargets = []
 
         deltas.forEach((delta) => {
@@ -111,7 +91,6 @@
 
 
     function checkMatches(matches, $clickedCreature) {
-
       matches.forEach( function (match) {
         const diff = $clickedCreature.index() - $(match).index();
         const possibleThirdIdx = $(match).index() - diff;
@@ -121,106 +100,54 @@
           const images = ['bluedino.png', 'slug.png', 'slug1.png', 'dino2.png', 'rex.png'];
           const newHTML = `img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" `
           let matchThree = [$(match), $clickedCreature, possibleThird];
-          // let score = 0;
+
           matchThree.forEach( function (element) {
             element.html("").html("<img src='assets/images/explosion.png' width='57px'>")
             setTimeout(function(){ element.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },2000)
-            // score += 10
           })
-
-          debugger
-          // console.log(score)
         }
-
       })
     }
 
     function checkHorizontals() {
-      let noMatches = false
-      // while (!noMatches) {
-        // noMatches = true
-        const horizontalIndicies = [0, 1, 2, 3, 4, 5, 56, 57, 58, 59, 60, 61]
-
-        horizontalIndicies.forEach((idx) => {
-          const $currentCreature = $(`ul.group li:eq(${idx})`)
-          const $firstCheck = $(`ul.group li:eq(${idx+1})`)
-          const $secondCheck = $(`ul.group li:eq(${idx+2})`)
-  debugger
-          if ($currentCreature.html() === $firstCheck.html() && $currentCreature.html() === $secondCheck.html()) {
-
-            const images = ['bluedino.png', 'slug1.png', 'slug.png', 'dino2.png', 'rex.png'];
-            const newHTML = `<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`
-
-            $currentCreature.html("").html("<img src='assets/images/explosion.png' width='57px'>")
-            $firstCheck.html("").html("<img src='assets/images/explosion.png' width='57px'>")
-            $secondCheck.html("").html("<img src='assets/images/explosion.png' width='57px'>")
-
-            let matchThree = [$currentCreature, $firstCheck, $secondCheck];
-            matchThree.forEach( function (element) {
-              const images = ['bluedino.png', 'slug1.png', 'slug.png', 'dino2.png', 'rex.png'];
-              element.html("").html("<img src='assets/images/explosion.png' width='57px'>")
-              setTimeout(function(){ element.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },2000)
-              // score += 10
-            })
-            // setTimeout(function(){ $currentCreature.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },2000)})
-            // setTimeout(function(){ $firstCheck.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },2000)})
-            // setTimeout(function(){ $secondCheck.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },2000)})
-
-
-            // $currentCreature.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`);
-            // $firstCheck.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`);
-            // $secondCheck.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`);
-          }
-        })
-      // }
-        checkVerticals();
-        // this.checkMatches($clickedCreature);
-        debugger
-    }
-
-  function checkVerticals () {
-    const verticalIndicies = [0, 8, 16, 24, 32, 40, 15, 23, 31, 39, 47]
-    // const rightVerticalIndicies = [15, 23, 31, 39, 47, 55]
-  debugger
-      verticalIndicies.forEach((idx) => {
+      const horizontalIndicies = [0, 1, 2, 3, 4, 5, 56, 57, 58, 59, 60, 61]
+      horizontalIndicies.forEach((idx) => {
         const $currentCreature = $(`ul.group li:eq(${idx})`)
-        const $firstCheck = $(`ul.group li:eq(${idx+8})`)
-        const $secondCheck = $(`ul.group li:eq(${idx+16})`)
-
+        const $firstCheck = $(`ul.group li:eq(${idx+1})`)
+        const $secondCheck = $(`ul.group li:eq(${idx+2})`)
         if ($currentCreature.html() === $firstCheck.html() && $currentCreature.html() === $secondCheck.html()) {
-          const images = ['dino2.png', 'rex.png', 'bluedino.png', 'slug1.png', 'slug.png'];
-          const newHTML = `<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`
-
-
           let matchThree = [$currentCreature, $firstCheck, $secondCheck];
           matchThree.forEach( function (element) {
             const images = ['bluedino.png', 'slug1.png', 'slug.png', 'dino2.png', 'rex.png'];
             element.html("").html("<img src='assets/images/explosion.png' width='57px'>")
             setTimeout(function(){ element.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },2000)
-            // score += 10
           })
-
-          // $currentCreature.html("").html("<img src='assets/images/explosion.png' width='57px'>")
-          // $firstCheck.html("").html("<img src='assets/images/explosion.png' width='57px'>")
-          // $secondCheck.html("").html("<img src='assets/images/explosion.png' width='57px'>")
-          //
-          // $currentCreature.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`);
-          // $firstCheck.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`);
-          // $secondCheck.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`);
         }
       })
-      checkInside();
+
+      checkVerticals();
     }
 
-    // handleScore(score) {
-    //   if (!totalScore) {
-    //     let totalScore = 0;
-    //   } else {
-    //     totalScore += score
-    //   }
-    //   return totalScore;
-    //   console.log(totalScore)
-    // }
+  function checkVerticals () {
+    const verticalIndicies = [0, 8, 16, 24, 32, 40, 15, 23, 31, 39, 47]
+    verticalIndicies.forEach((idx) => {
+      const $currentCreature = $(`ul.group li:eq(${idx})`)
+      const $firstCheck = $(`ul.group li:eq(${idx+8})`)
+      const $secondCheck = $(`ul.group li:eq(${idx+16})`)
+
+      if ($currentCreature.html() === $firstCheck.html() && $currentCreature.html() === $secondCheck.html()) {
+        let matchThree = [$currentCreature, $firstCheck, $secondCheck];
+        matchThree.forEach( function (element) {
+          const images = ['bluedino.png', 'slug1.png', 'slug.png', 'dino2.png', 'rex.png'];
+          element.html("").html("<img src='assets/images/explosion.png' width='57px'>")
+          setTimeout(function(){ element.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },2000)
+        })
+
+      }
+    })
+    checkInside();
+  }
+
 
     </script>
 
