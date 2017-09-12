@@ -63,17 +63,8 @@
           const row5 = [40, 41, 42, 43, 44, 45];
           const row6 = [48, 49, 50, 51, 52, 53];
           const row7 = [56, 57, 58, 59, 60, 61];
-// debugger
           const horizontalIndicies = row0.concat(row1, row2, row3, row4, row5, row6, row7);
-          // const horizontalIndicies = [0, 1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 24, 25, 26, 27, 28, 29, 32, 33, 34, 35, 36, 37, 40, 41, 42, 43, 44, 45, 48, 49, 50, 51, 52, 53, 56, 57, 58, 59, 60, 61]
-          // const horizontalStarts = [0, 8, 16, 24, 29, 32, 40, 48, 56]
-          // const matches = []
-          // horizontalStarts.forEach((idx) => {
-          //   for (let checkIdx = idx + 1; checkIdx < (idx + 5); checkIdx++) {
-          //     if ($(`ul.group li:eq(${idx})`).html() === $(`ul.group li:eq(${checkIdx})`).html() && $(`ul.group li:eq(${idx})`).html() === $(`ul.group li:eq(${checkIdx + 1})`).html())
-          //     matches.push()
-          //   }
-          // })
+
 
 
 
@@ -83,16 +74,8 @@
             const $firstCheck = $(`ul.group li:eq(${idx+1})`)
             const $secondCheck = $(`ul.group li:eq(${idx+2})`)
             if ($currentCreature.html() === $firstCheck.html() && $currentCreature.html() === $secondCheck.html()) {
-              // debugger
-              matches.push($currentCreature, $firstCheck, $secondCheck)
 
-              // let matchThree = [$currentCreature, $firstCheck, $secondCheck];
-              // matchThree.forEach( function (element) {
-              //   const images = ['bluedino.png', 'slug1.png', 'slug.png', 'dino2.png', 'rex.png'];
-              //   element.html("").html("<img src='assets/images/explosion.png' width='57px'>")
-              //   setTimeout(function(){ element.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },1000)
-              // })
-              // debugger
+              matches.push($currentCreature, $firstCheck, $secondCheck)
               return matches
             }
             // debugger
@@ -121,7 +104,7 @@
             const $currentCreature = $(`ul.group li:eq(${idx})`)
             const $firstCheck = $(`ul.group li:eq(${idx+8})`)
             const $secondCheck = $(`ul.group li:eq(${idx+16})`)
-            debugger
+            // debugger
             if ($currentCreature.html() === $firstCheck.html() && $currentCreature.html() === $secondCheck.html()) {
               verticalMatches.push($currentCreature, $firstCheck, $secondCheck)
               return verticalMatches
@@ -133,7 +116,28 @@
           console.log(verticalMatches)
           totalMatches = verticalMatches.concat(matches)
           console.log(totalMatches)
+          updateMatches(totalMatches)
         }
+
+        function updateMatches(totalMatches) {
+          const images = ['bluedino.png', 'slug.png', 'slug1.png', 'dino2.png', 'rex.png'];
+          const score = (10 * totalMatches.length)
+          const newHTML = `img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" `
+            totalMatches.forEach( function (element) {
+              element.html("").html("<img src='assets/images/explosion.png' width='57px'>")
+              setTimeout(function(){ element.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },1000)
+             })
+            updateScore(score);
+        }
+
+
+        function updateScore(score) {
+          debugger
+          const $score = $(document.getElementById('score'))
+          currentScore = Number($score.html());
+          $score.html(currentScore + score)
+        }
+
   //     function checkInside() {
   //       for (let idx = 0; idx < 64; idx++) {
   //         const borderIndicies = [0, 1, 2, 3, 4, 5, 6, 7, 8, 15, 16, 23, 24, 31, 32, 39, 40, 47, 48, 55, 56, 57, 58, 59, 60, 61, 62, 63]
@@ -255,7 +259,7 @@
               <button class="start" type="button" name="button">START</button>
               <button class="restart" type="button" onclick="location.reload();" name="button">RESTART</button>
               <div class="scoreDiv">
-                <div id='score'>0 </div>
+                <div id='score'>0</div>
                   <img id="eggImg" src="./assets/images/egg.svg">
                 <h2 id="label">Score</h2>
               </div>
