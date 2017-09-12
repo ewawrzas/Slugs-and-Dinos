@@ -16,7 +16,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="./assets/javascripts/bundle.js"></script>
 
+
     <script>
+
       function dragstart_handler(ev) {
         $(ev.target).attr("id", "selected");
         console.log("dragStart");
@@ -141,7 +143,7 @@
           element.html("").html("<img src='assets/images/explosion.png' width='57px'>")
           setTimeout(function(){ element.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },1000)
         })
-
+        // $(document.getElementById('#score')).html(score+=30)
       }
     })
     checkInside();
@@ -152,7 +154,7 @@
 
   </head>
   <body>
-    <div class="gamescreen">
+    <div  class="gamescreen">
 
 			<div class="links">
 				<a href="https://www.linkedin.com/in/ellie-wawrzaszek/" class="fa fa-linkedin"></a>
@@ -166,22 +168,22 @@
           <h1 id="title">Slugs & Dinos</h1>
           <img id="dinoImg2" src="./assets/images/rex.svg">
         </div>
+        <div id="background" class="wrapper2">
+          <div class="content">
+            <div class="control-panel-column">
+              <button class="start" type="button" name="button">START</button>
+              <button class="restart" type="button" onclick="location.reload();" name="button">RESTART</button>
+              <div class="scoreDiv">
+                <div id='score'>0 </div>
+                  <img id="eggImg" src="./assets/images/egg.svg">
+                <h2 id="label">Score</h2>
+              </div>
 
-        <div class="content">
-          <div class="control-panel-column">
-            <button class="start" type="button" name="button">START</button>
-            <button class="restart" type="button" onclick="location.reload();" name="button">RESTART</button>
-            <div class="scoreDiv">
-              <img id="eggImg" src="./assets/images/egg.svg">
-              <h2 id="label">Score</h2>
+              <div id="progressBar"><div id='bar'></div></div>
             </div>
-
-            <div id="progressBar"></div>
-
+            <figure class="gameboard"></figure>
           </div>
-          <figure class="gameboard"></figure>
         </div>
-
       </div>
     </div>
   </body>
