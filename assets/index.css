@@ -192,6 +192,14 @@ body {
   bottom: 50px;
 }
 
+#instructions {
+  min-width: 400px;
+  display: flex;
+  font-size: 32px;
+  position: relative;
+  left: 35px;
+}
+
 .icon {
   display: flex;
   align-items: center;
