@@ -10,12 +10,7 @@
  align-items: center;
 }
 
-/*.wrapper1 {
-  width: 100%
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}*/
+
 
 .explode {
   background-image: url('./images/fire.jpg');
@@ -56,13 +51,13 @@ button:hover {
   cursor: pointer;
 }
 
-#start{
+.start{
   background-color: lightgrey;
   color: black;
   font-size: 32px;
 }
 
-#start:hover{
+.start:hover{
   opacity: .5;
 }
 
@@ -153,7 +148,6 @@ body {
   width: auto;
   height: 25px;
   background-color: lightgrey;
-  back
 }
 
 
@@ -174,4 +168,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.restart {
+  display: none;
+  background-color: lightgrey;
+  color: black;
+  font-size: 30px;
+}
+
+.restart:hover{
+  opacity: .5;
 }

@@ -27,42 +27,41 @@
         img.src = 'assets/images/four-expand-arrows.png';
         ev.dataTransfer.setDragImage(img, 10, 10);
         ev.dataTransfer.dropEffect = "move";
-
       }
 
       function dragover_handler(ev) {
-       ev.preventDefault();
-       ev.dataTransfer.dropEffect = "move"
+        ev.preventDefault();
+        ev.dataTransfer.dropEffect = "move"
       }
 
-    function drop_handler(ev) {
-      ev.preventDefault();
-      var data = ev.dataTransfer.getData("text");
+      function drop_handler(ev) {
+        ev.preventDefault();
+        let data = ev.dataTransfer.getData("text");
 
-      if (!data){
+        if (!data){
          dragstart_handler(ev);
+       }
+
+        const toElement = $(ev.target.parentElement);
+        const image = ev.target.src.slice(52);
+        const fromElement = $(document.getElementById(data).parentElement)
+
+        toElement.html("").append(document.getElementById(data))
+        fromElement.append(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=${image} height="54px" >`)
+        $(document.getElementById(data)).removeAttr('id')
+        checkHorizontals();
       }
 
-      const toElement = $(ev.target.parentElement);
-      const image = ev.target.src.slice(52);
-      const fromElement = $(document.getElementById(data).parentElement)
-
-      toElement.html("").append(document.getElementById(data))
-      fromElement.append(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=${image} height="54px" >`)
-      $(document.getElementById(data)).removeAttr('id')
-      checkHorizontals();
-    }
-
-    function checkInside() {
-      for (let idx = 0; idx < 64; idx++) {
-        const borderIndicies = [0, 1, 2, 3, 4, 5, 6, 7, 8, 15, 16, 23, 24, 31, 32, 39, 40, 47, 48, 55, 56, 57, 58, 59, 60, 61, 62, 63]
-        if (borderIndicies.includes(idx)) {
-          continue;
+      function checkInside() {
+        for (let idx = 0; idx < 64; idx++) {
+          const borderIndicies = [0, 1, 2, 3, 4, 5, 6, 7, 8, 15, 16, 23, 24, 31, 32, 39, 40, 47, 48, 55, 56, 57, 58, 59, 60, 61, 62, 63]
+          if (borderIndicies.includes(idx)) {
+            continue;
+          }
+          const $clickedCreature = $(`ul.group li:eq(${idx})`)
+          this.findTargets($clickedCreature);
         }
-        const $clickedCreature = $(`ul.group li:eq(${idx})`)
-        this.findTargets($clickedCreature);
       }
-    }
 
       function findTargets($clickedCreature) {
         const clickedCreatureIdx = $($clickedCreature).index();
@@ -103,7 +102,7 @@
 
           matchThree.forEach( function (element) {
             element.html("").html("<img src='assets/images/explosion.png' width='57px'>")
-            setTimeout(function(){ element.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },2000)
+            setTimeout(function(){ element.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },1000)
           })
         }
       })
@@ -120,7 +119,7 @@
           matchThree.forEach( function (element) {
             const images = ['bluedino.png', 'slug1.png', 'slug.png', 'dino2.png', 'rex.png'];
             element.html("").html("<img src='assets/images/explosion.png' width='57px'>")
-            setTimeout(function(){ element.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },2000)
+            setTimeout(function(){ element.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },1000)
           })
         }
       })
@@ -140,7 +139,7 @@
         matchThree.forEach( function (element) {
           const images = ['bluedino.png', 'slug1.png', 'slug.png', 'dino2.png', 'rex.png'];
           element.html("").html("<img src='assets/images/explosion.png' width='57px'>")
-          setTimeout(function(){ element.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },2000)
+          setTimeout(function(){ element.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },1000)
         })
 
       }
@@ -170,7 +169,8 @@
 
         <div class="content">
           <div class="control-panel-column">
-            <button id="start" type="button" name="button">START</button>
+            <button class="start" type="button" name="button">START</button>
+            <button class="restart" type="button" onclick="location.reload();" name="button">RESTART</button>
             <div class="scoreDiv">
               <img id="eggImg" src="./assets/images/egg.svg">
               <h2 id="label">Score</h2>
