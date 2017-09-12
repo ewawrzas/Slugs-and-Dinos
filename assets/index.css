@@ -2,15 +2,20 @@
  background-color: black;
  display: flex;
  flex-direction: column;
- min-height: 900px;
+ min-height: 800px;
  width: auto;
  min-width: 700px;
  justify-content: center;
+ padding-bottom: 30px;
+ padding-top: 35px;
  /*align-content: flex-start;*/
  align-items: center;
 }
 
-
+.wrapper1{
+  position: relative;
+  bottom: 70px;
+}
 
 .explode {
   background-image: url('./images/fire.jpg');
