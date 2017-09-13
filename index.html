@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./assets/reset.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline" rel="stylesheet">
     <link rel="stylesheet" href="./assets/index.css" type="text/css">
     <link rel="stylesheet" href="./external/jquery-ui.min.css">
     <link rel="icon" type="image/gif" href="assets/images/favicon.ico">
@@ -66,9 +67,6 @@
           const row7 = [56, 57, 58, 59, 60, 61];
           const horizontalIndicies = row0.concat(row1, row2, row3, row4, row5, row6, row7);
 
-
-
-
           const matches = []
           horizontalIndicies.forEach((idx) => {
             const $currentCreature = $(`ul.group li:eq(${idx})`)
@@ -118,6 +116,7 @@
         }
 
         function updateMatches(totalMatches) {
+          if (totalMatches.length >= 1) {
           const images = ['bluedino.png', 'slug.png', 'slug1.png', 'dino2.png', 'rex.png'];
           const score = (10 * totalMatches.length)
           const newHTML = `img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" `
@@ -126,6 +125,7 @@
               setTimeout(function(){ element.html("").html(`<img draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" src=assets/images/${images[(Math.floor(Math.random() * 5)) % 5]} height="54px" >`); },1000)
              })
             updateScore(score);
+          }
         }
 
         function updateScore(score) {
@@ -140,13 +140,13 @@
   <body>
     <div  class="gamescreen">
 
-			<div class="links">
-				<a href="https://www.linkedin.com/in/ellie-wawrzaszek/" class="fa fa-linkedin"></a>
-        <a href="https://github.com/ewawrzas" class="fa fa-github"></a>
-				<a href="https://angel.co/ellie-wawrzaszek" class="fa fa-angellist"></a>
-			</div>
 
     <div class="wrapper1">
+      <div class="links">
+        <a href="https://www.linkedin.com/in/ellie-wawrzaszek/" class="fa fa-linkedin"></a>
+        <a href="https://github.com/ewawrzas" class="fa fa-github"></a>
+        <a href="https://angel.co/ellie-wawrzaszek" class="fa fa-angellist"></a>
+      </div>
 
         <div class="header">
           <img id="dinoImg1" src="./assets/images/rex.svg">
@@ -155,6 +155,7 @@
           <img id="dinoImg2" src="./assets/images/rex.svg">
         </div>
         <div id="background" class="wrapper2">
+
           <div class="content">
             <div class="control-panel-column">
               <button class="start" type="button" name="button">START</button>
@@ -169,6 +170,8 @@
             </div>
             <figure class="gameboard"><p id=instructions>Make matches and earn points!<br><br> Press start to begin</p></figure>
           </div>
+          <h3 id="name">Ellie Wawrzaszek 2017</h3>
+
         </div>
       </div>
     </div>

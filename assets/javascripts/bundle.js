@@ -194,7 +194,7 @@ var View = function () {
           clearInterval(id);
           $('.gameboard').hide();
           $('.control-panel-column').hide();
-          $('.gamescreen').html("<div class='loser-screen'><button class='newGame' type='button' onclick='location.reload();'name='button'>New Game</button> <img src='assets/images/sad.png' width='500px'></div>");
+          $('.gamescreen').html('<div class=loser-screen\'><button class=\'newGame\' type=\'button\' onclick=\'location.reload();\'name=\'button\'>New Game</button> <img src=\'assets/images/sad.png\' width=\'500px\'></div>');
           var $button = $("<button>");
           $button.addClass("newGame");
         } else {
