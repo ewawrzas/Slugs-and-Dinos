@@ -23,6 +23,7 @@
 
       function dragstart_handler(ev) {
         $(ev.target).attr("id", "selected");
+        debugger
         console.log("dragStart");
         // Add the target element's id to the data transfer object
         const data = event.dataTransfer;
@@ -142,11 +143,7 @@
 
 
     <div class="wrapper1">
-      <div class="links">
-        <a href="https://www.linkedin.com/in/ellie-wawrzaszek/" class="fa fa-linkedin"></a>
-        <a href="https://github.com/ewawrzas" class="fa fa-github"></a>
-        <a href="https://angel.co/ellie-wawrzaszek" class="fa fa-angellist"></a>
-      </div>
+
 
         <div class="header">
           <img id="dinoImg1" src="./assets/images/rex.svg">
@@ -168,9 +165,14 @@
 
               <div id="progressBar"><div id='bar'></div></div>
             </div>
-            <figure class="gameboard"><p id=instructions>Make matches and earn points!<br><br> Press start to begin</p></figure>
+            <figure class="gameboard"><p id=instructions>Make matches and earn points!<br><br> Press <button id="textButton" class="start" type="button" name="button">START</button> to begin</p></figure>
           </div>
-          <h3 id="name">Ellie Wawrzaszek 2017</h3>
+          <div class="links">
+            <a href="https://www.linkedin.com/in/ellie-wawrzaszek/" class="fa fa-linkedin"></a>
+            <a href="https://github.com/ewawrzas" class="fa fa-github"></a>
+            <a href="https://angel.co/ellie-wawrzaszek" class="fa fa-angellist"></a>
+            <h3 id="name">Ellie Wawrzaszek 2017</h3>
+          </div>
 
         </div>
       </div>

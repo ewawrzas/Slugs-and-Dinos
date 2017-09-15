@@ -14,14 +14,25 @@
  padding-top: 100px;
 }
 
+#textButton {
+  margin: 0;
+  padding: 0;
+  font-family: 'Bungee Shade';
+  background-color: white;
+  display: inline-block;
+  position: relative;
+  bottom: 2px;
+}
+
 #name {
   color: white;
   font-family: 'Bungee Hairline', cursive;
   letter-spacing: 1px;
   position: relative;
-  left: 240px;
+  font-size: 18px;
   font-weight: 700;
   opacity: .8;
+  margin-left: 10px;
 }
 
 .wrapper1{
@@ -36,12 +47,11 @@
 }
 
 .links {
-  align-self: flex-start;
+  justify-content: center;
   display: flex;
   /*margin-left: 40px;*/
   position: relative;
-  /*right: 5px;*/
-  bottom: 15px;
+  align-items: center;
 }
 
 .links a {
@@ -208,7 +218,6 @@ body {
 
 #instructions {
   min-width: 400px;
-  display: flex;
   font-size: 32px;
   position: relative;
   left: 35px;
@@ -250,5 +259,4 @@ body {
   flex-direction: column;
   justify-content: center;
   align-content: center;
-
 }
