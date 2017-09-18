@@ -23,8 +23,6 @@
 
       function dragstart_handler(ev) {
         $(ev.target).attr("id", "selected");
-        debugger
-        console.log("dragStart");
         // Add the target element's id to the data transfer object
         const data = event.dataTransfer;
         ev.dataTransfer.setData("text/plain", ev.target.id);
@@ -78,10 +76,7 @@
               matches.push($currentCreature, $firstCheck, $secondCheck)
               return matches
             }
-            console.log(matches)
           })
-
-          console.log(matches)
           checkVerticals(matches);
         }
 
@@ -106,13 +101,10 @@
               verticalMatches.push($currentCreature, $firstCheck, $secondCheck)
               return verticalMatches
             }
-            //
-            console.log(verticalMatches)
+
           })
 
-          console.log(verticalMatches)
           totalMatches = verticalMatches.concat(matches)
-          console.log(totalMatches)
           updateMatches(totalMatches)
         }
 

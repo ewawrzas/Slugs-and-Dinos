@@ -3,12 +3,9 @@
  background-size: cover;
  display: flex;
  flex-direction: column;
- /*height: 100%;*/
- min-height: 100%;
  width: auto;
  min-width: 700px;
  justify-content: flex-start;
- padding-bottom: 100px;
  align-items: center;
  overflow: hidden;
  padding-top: 100px;
@@ -51,7 +48,6 @@
   justify-content: center;
   display: flex;
   flex-direction: column;
-  /*margin-left: 40px;*/
   position: relative;
   align-items: center;
 }
@@ -99,12 +95,11 @@ li {
   float: left;
   width: 60px;
   height: 60px;
-  /*border: 1px solid black;*/
   cursor: pointer;
 }
 
 li:hover{
-  background-color: yellow;
+  cursor: pointer;
 }
 
 .group:after {
@@ -236,7 +231,6 @@ body {
   padding: 5px 10px;
   font-size: 32px;
   border-radius: 5px;
-  /*align-self: center;*/
   background-color: black;
   border: 2px lightgrey solid;
   color: lightgrey;

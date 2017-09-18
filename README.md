@@ -10,10 +10,10 @@ Inspired by Candy Crush, Slugs & Dinos is a puzzle game where players earn point
 
 
   + Pieces
-    - There are four pieces, each having a different shape and color
+    - There are five pieces, each having a different shape and color
     - The pieces randomly populate the board when the start button is clicked
     - The user can swap one piece with an adjacent piece on the board
-    - After a swap, any rows, columns, or diagonals of 3 or more matching pieces is dissolved
+    - After a swap, any rows or columns of 3 or more matching pieces is dissolved
 
 
   + Score Board & Timer
@@ -31,7 +31,7 @@ Slugs and Dinos will be displayed on a single screen. The title and instructions
 The following technologies will be used to create the game:
 
 + `JavaScript` for game logic
-+ JQuery render game board, pieces, and control panel
++ `jQuery` to render game board, pieces, and control panel
 + Webpack to bundle js files
 
 The following will be scripts in addition to the entry file:
