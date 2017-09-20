@@ -86,6 +86,14 @@ button:hover {
   opacity: .5;
 }
 
+.modal {
+  color: #4CAF50;
+}
+
+.modal:hover{
+  opacity: .5;
+}
+
 ul {
   list-style: none;
   align-self: center;
@@ -273,7 +281,12 @@ body {
 #demo {
   height: 400px;
   width: auto;
+  margin-top: 80px;
+  border: white 15px solid;
+}
 
+#demo-close{
+  
 }
 
 video:close {

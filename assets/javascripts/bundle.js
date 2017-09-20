@@ -134,7 +134,7 @@ var View = function () {
     key: "modal",
     value: function modal() {
       $(".modal").click(function () {
-        $('.gamescreen').append("<div class=\"video\">\n          <h1>How to play</h1>\n            <img src=\"./assets/images/slugs_and_dinos_shortened2.gif\" autoplay loop id=\"demo\" />\n            <button onclick=\"$('.video').hide()\">Close</button>\n          </div>");
+        $('.gamescreen').append("<div class=\"video\">\n            <button id=\"demo-close\" onclick=\"$('.video').hide()\">Close Demo</button>\n            <img src=\"./assets/images/slugs_and_dinos_shortened2.gif\" autoplay loop id=\"demo\" />\n          </div>");
       });
     }
   }, {
