@@ -141,10 +141,10 @@ var View = function () {
     key: "timer",
     value: function timer() {
       var elem = document.getElementById("bar");
-      var width = 100;
+      var width = 1;
       var id = setInterval(frame, 500);
       function frame() {
-        if (width <= 0) {
+        if (width >= 100) {
           clearInterval(id);
           $('.gameboard').hide();
           $('.control-panel-column').hide();
