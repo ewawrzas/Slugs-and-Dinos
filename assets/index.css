@@ -276,17 +276,24 @@ body {
   background-color: rgba(0, 0, 0, 0.75);
   z-index: 2;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+
 #demo {
-  height: 400px;
-  width: auto;
-  margin-top: 80px;
+  height: auto;
+  max-width: 550px;
   border: white 15px solid;
 }
 
 #demo-close{
-  
+  margin-top: 50px;
+  color: #4CAF50;
+  background-color: white;
+  width: 580px;
+  padding-top: 10px;
 }
 
 video:close {
