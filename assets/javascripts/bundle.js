@@ -136,6 +136,7 @@ var View = function () {
   }, {
     key: "timer",
     value: function timer() {
+      var score = document.getElementById('score');
       var elem = document.getElementById("bar");
       var width = 1;
       var id = setInterval(frame, 500);
