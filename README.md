@@ -2,6 +2,10 @@
 
 Inspired by Bejeweled, Slugs & Dinos is a puzzle game where players earn points by lining up matching pieces before the clock runs out.
 
+![alt text](https://github.com/ewawrzas/Slugs-and-Dinos/blob/master/assets/Screen%20Shot%202017-10-03%20at%208.03.34%20PM.png)
+
+![alt text](https://github.com/ewawrzas/Slugs-and-Dinos/blob/master/assets/Screen%20Shot%202017-10-03%20at%208.03.20%20PM.png)
+
 ## Functionality & MVP
   + Game Board and Control Panel
     - The board consists of an 8x8 grid
@@ -54,5 +58,5 @@ The following will be scripts in addition to the entry file:
 + Day 3: Score Board and Timer
   - Objective: Complete functional score board and timer
   * Use match algorithm to add score keeping functionality
-  * Implement timer that starts on click of the start button 
+  * Implement timer that starts on click of the start button
   * Use `jQuery` to dynamically render restart screen when time runs out
