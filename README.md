@@ -2,6 +2,8 @@
 
 Inspired by Bejeweled, Slugs & Dinos is a puzzle game where players earn points by lining up matching pieces before the clock runs out.
 
+Play it [live](http://elliewawrzaszek.us/Slugs-and-Dinos/)
+
 ![alt text](https://github.com/ewawrzas/Slugs-and-Dinos/blob/master/assets/Screen%20Shot%202017-10-03%20at%208.03.34%20PM.png)
 
 ![alt text](https://github.com/ewawrzas/Slugs-and-Dinos/blob/master/assets/Screen%20Shot%202017-10-03%20at%208.03.20%20PM.png)
